@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import NavBar from "./komponenty/NavBar";
 import UserList from "./komponenty/UserList";
 import LessonList from "./komponenty/LessonList";
-
+import CreateLesson from "./komponenty/CreateLesson";
 
 function App() {
   const [lessonList, setLessonList] = useState([]);
@@ -93,6 +93,9 @@ function App() {
          userList={userList} // Předání seznamu žáků jako props
        />
        {showUserList ? <UserList userList={userList} onUserDeleted={handleUserDeleted} /> : <LessonList lessonList={lessonList} onLessonDeleted={handleLessonDeleted} onLessonApproved={handleLessonApproved} />}
+    
+      
+       <CreateLesson fetchLessons={fetchLessons} />
     </div>
   );
 }
